@@ -6,15 +6,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:google_places_picker_advance/google_places_picker_advance.dart';
-import 'package:google_places_picker_advance/providers/place_provider.dart';
-import 'package:google_places_picker_advance/src/components/animated_pin.dart';
-import 'package:google_places_picker_advance/src/components/floating_card.dart';
-import 'package:google_places_picker_advance/src/place_picker.dart';
 import 'package:google_maps_webservice/geocoding.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
+
+import '../google_places_picker_advance.dart';
+import '../providers/place_provider.dart';
+import 'components/animated_pin.dart';
 
 typedef SelectedPlaceWidgetBuilder = Widget Function(
   BuildContext context,
@@ -51,6 +50,7 @@ class GoogleMapPlacePicker extends StatelessWidget {
     this.forceSearchOnZoomChanged,
     this.popOnPickResult,
     this.hidePlaceDetailsWhenDraggingPin,
+    this.zoom
   }) : super(key: key);
 
   final LatLng initialTarget;
@@ -79,6 +79,8 @@ class GoogleMapPlacePicker extends StatelessWidget {
 
   final bool? forceSearchOnZoomChanged;
   final bool? hidePlaceDetailsWhenDraggingPin;
+
+  final double? zoom;
 
   _searchByCameraLocation(PlaceProvider provider) async {
     // We don't want to search location again if camera location is changed by zooming in/out.
@@ -143,7 +145,7 @@ class GoogleMapPlacePicker extends StatelessWidget {
         selector: (_, provider) => provider.mapType,
         builder: (_, data, __) {
           PlaceProvider provider = PlaceProvider.of(context, listen: false);
-          CameraPosition initialCameraPosition = CameraPosition(target: initialTarget, zoom: 15);
+          CameraPosition initialCameraPosition = CameraPosition(target: initialTarget, zoom: zoom??16);
 
           return GoogleMap(
             myLocationButtonEnabled: false,
@@ -151,7 +153,8 @@ class GoogleMapPlacePicker extends StatelessWidget {
             mapToolbarEnabled: false,
             initialCameraPosition: initialCameraPosition,
             mapType: data,
-            myLocationEnabled: true,
+            myLocationEnabled: false,
+            zoomControlsEnabled: false,
             onMapCreated: (GoogleMapController controller) {
               provider.mapController = controller;
               provider.setCameraPosition(null);

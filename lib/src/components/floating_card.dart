@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_places_picker_advance/src/components/rounded_frame.dart';
+
+import '../../google_places_picker_advance.dart';
 
 class FloatingCard extends StatelessWidget {
   const FloatingCard({

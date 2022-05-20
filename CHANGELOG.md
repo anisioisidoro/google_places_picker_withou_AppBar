@@ -1,7 +1,15 @@
 ## 0.0.1
 
-* Initial Release
+* I just removed the AppBar
 
-## 0.0.14
+* This package is for a specific project
 
-* Fixed Bugs
+## 0.0.2
+
+* README
+
+## 0.0.4
+
+* Now it is possible to control the zoom by the parameter
+
+

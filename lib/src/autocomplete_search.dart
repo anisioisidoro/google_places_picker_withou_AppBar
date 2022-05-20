@@ -1,14 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:google_places_picker_advance/google_places_picker_advance.dart';
-import 'package:google_places_picker_advance/providers/place_provider.dart';
-import 'package:google_places_picker_advance/providers/search_provider.dart';
-import 'package:google_places_picker_advance/src/components/prediction_tile.dart';
-import 'package:google_places_picker_advance/src/components/rounded_frame.dart';
-import 'package:google_places_picker_advance/src/controllers/autocomplete_search_controller.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:provider/provider.dart';
+
+import '../google_places_picker_advance.dart';
+import '../providers/place_provider.dart';
+import '../providers/search_provider.dart';
+import 'controllers/autocomplete_search_controller.dart';
 
 class AutoCompleteSearch extends StatefulWidget {
   const AutoCompleteSearch(
@@ -257,21 +256,7 @@ class AutoCompleteSearchState extends State<AutoCompleteSearch> {
     );
   }
 
-  Widget _buildPredictionOverlay(List<Prediction> predictions) {
-    return ListBody(
-      children: predictions
-          .map(
-            (p) => PredictionTile(
-              prediction: p,
-              onTap: (selectedPrediction) {
-                resetSearchBar();
-                widget.onPicked(selectedPrediction);
-              },
-            ),
-          )
-          .toList(),
-    );
-  }
+  
 
   _performAutoCompleteSearch(String searchTerm) async {
     PlaceProvider provider = PlaceProvider.of(context, listen: false);
@@ -297,7 +282,6 @@ class AutoCompleteSearchState extends State<AutoCompleteSearch> {
         return;
       }
 
-      _displayOverlay(_buildPredictionOverlay(response.predictions));
     }
   }
 

@@ -1,3 +1,10 @@
+# Note
+
+
+This plugin is a clone of [google_places_picker_advance](https://pub.dev/packages/google_places_picker_advance)
+
+* I made just one change to use in my project
+
 # Google Maps Place Picker
 
 A Flutter plugin which provides 'Picking Place' using [Google Maps](https://developers.google.com/maps/) widget.
@@ -326,6 +333,6 @@ final ThemeData darkTheme = ThemeData.dark().copyWith(
 ## Feature Requests and Issues
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: https://github.com/MicroProgramer/google_places_picker_advance/issues/new
+[tracker]: https://github.com/MicroProgramer/google_places_picker_advance_without_appBar/issues/new
 
 <a href="https://www.buymeacoffee.com/MubasharHussain" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>

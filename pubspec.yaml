@@ -1,7 +1,7 @@
-name: google_places_picker_withou_AppBar
+name: google_places_picker_advance_without_appar
 description: A Flutter package which provides 'Picking Places' using Google Maps widget.
-version: 0.0.1
-homepage: https://github.com/MicroProgramer/google_places_picker_advance/
+version: 0.0.6
+homepage: https://github.com/anisioisidoro/google_places_picker_withou_AppBar
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
@@ -15,7 +15,7 @@ dependencies:
   permission_handler: ^9.2.0
   provider: ^6.0.2
   google_maps_webservice: ^0.0.20-nullsafety.5
-  google_api_headers: ^1.2.0
+  google_api_headers: ^1.3.0
   tuple: ^2.0.0-nullsafety.0
   http: ^0.13.4
 
